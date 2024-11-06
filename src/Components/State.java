@@ -5,7 +5,7 @@ import java.util.Vector;
 public class State {
   private final String id_;
   private boolean isFinal_ = false;
-  private final Vector<Transitions> transitionsVector = new Vector<>();
+  private final Vector<Transition> transitionsVector = new Vector<>();
 
   public State(String id) {
     this.id_ = id;
@@ -19,7 +19,13 @@ public class State {
   public void setFinal() {
     this.isFinal_ = true;
   }
+  public void addTransition(Transition transition) {
+    this.transitionsVector.add(transition);
+  }
+  public Vector<Transition> getTransitions() {
+    return this.transitionsVector;
+  }
   public String toString() {
-    return "State: " + this.id_;
+    return "State: " + this.id_ + (this.isFinal_ ? " (final)" : "");
   }
 }
