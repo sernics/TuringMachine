@@ -1,26 +1,19 @@
 package Components;
 
 public class Symbol {
-  public static final Symbol EPSILON = new Symbol("EPSILON");
-  private final String symbol;
+  private final String symbol_;
+
   public Symbol(String symbol) {
-    this.symbol = symbol;
+    this.symbol_ = symbol;
   }
   public String get() {
-    return this.symbol;
+    return this.symbol_;
   }
   public boolean equals(Symbol other) {
-    return this.symbol.equals(other.get());
-  }
-  /*
-   * Returns true if this symbol is the epsilon symbol. Has been defined the epsilon symbol as the dot ('.') character.
-   * @return True if this symbol is the epsilon symbol.
-   */
-  public boolean epsilon() {
-    return this.symbol.equals(".");
+    return this.symbol_.equals(other.get());
   }
   // to string
   public String toString() {
-    return this.symbol;
+    return this.symbol_;
   }
 }
