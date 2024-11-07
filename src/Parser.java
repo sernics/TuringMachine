@@ -96,7 +96,18 @@ public class Parser {
         System.err.println("Error: State " + transitionData[2] + " not found");
       }
       Symbol writeSymbol = new Symbol(transitionData[3]);
-      Direction direction = new Direction(transitionData[4]);
+      String directionString = transitionData[4];
+      Direction direction;
+      if (!directionString.equals("L") && !directionString.equals("R") && !directionString.equals("S")) {
+        System.err.println("Error: Invalid direction " + directionString);
+      }
+      if (directionString.equals("L")) {
+        direction = new LeftDirection();
+      } else if (directionString.equals("R")) {
+        direction = new RightDirection();
+      } else {
+        direction = new StayDirection();
+      }
       Transition transition = new Transition(readSymbol, toState, writeSymbol, direction);
       Objects.requireNonNull(fromState).addTransition(transition);
       i++;

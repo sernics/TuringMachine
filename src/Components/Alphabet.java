@@ -15,6 +15,15 @@ public class Alphabet {
   public Set<Symbol> getAlphabet() {
     return this.alphabet_;
   }
+  public boolean contains(Symbol symbol) {
+    // Comprobar el string
+    for (Symbol s : this.alphabet_) {
+      if (s.equals(symbol)) {
+        return true;
+      }
+    }
+    return false;
+  }
   // to string
   public String toString() {
     StringBuilder result = new StringBuilder("Alphabet: ");
