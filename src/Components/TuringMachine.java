@@ -48,6 +48,7 @@ public class TuringMachine {
     while (true) {
       currentState = transitionFunction(currentState);
       if (currentState == null) {
+        System.out.println(tape_);
         break;
       }
       if (currentState.isFinal()) {
