@@ -23,6 +23,7 @@ public class TuringMachine {
     for (Transition transition : transitions) {
       if (transition.readSymbol().equals(actualSymbol)) {
         this.tape_.write(transition.writeSymbol());
+        System.out.println(transition.nextState());
         transition.direction().operate(tape_);
         return transition.nextState();
       }
