@@ -1,5 +1,10 @@
 # TuringMachine
 
+Se ha implementado una máquina de Turing con las siguientes características:
+- Cinta infinita hacia la izquierda y la derecha.
+- La máquina tiene 3 tipos de movimientos: L, R y S.
+- La máquina se configuran en los ficheros con el formato indicado en la práctica.
+
 ## Modo de uso
 Comando para compilar
 ```
