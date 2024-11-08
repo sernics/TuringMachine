@@ -29,9 +29,6 @@ public class TuringMachine {
     }
     return null;
   }
-  private void reinitialize() {
-    this.tape_.reinitialize();
-  }
 
   public TuringMachine(Vector<State> states, Alphabet alphabet, Alphabet tapeAlphabet, State initialState, Symbol blankSymbol) {
     this.states_ = states;
