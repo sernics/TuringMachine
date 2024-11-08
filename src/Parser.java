@@ -16,6 +16,7 @@ public class Parser {
         String[] tokens = line.split("\\s+");
         data.add(tokens);
       }
+      scanner.close();
     } catch (Exception e) {
       System.out.println("Error: " + e.getMessage());
     }
@@ -74,7 +75,7 @@ public class Parser {
   }
   public TuringMachine parse() {
     Vector<String[]> data = this.generateVectorData(this.fileName_);
-    Vector<State> states = generateStates(data.getFirst());
+    Vector<State> states = generateStates(data.get(0));
     Alphabet alphabet = generateAlphabet(data.get(1));
     Alphabet tapeAlphabet = generateAlphabet(data.get(2));
     State initialState = getInitialState(states, data.get(3)[0]);

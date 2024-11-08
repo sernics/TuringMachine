@@ -19,7 +19,7 @@ public class Tape {
   }
   public void moveHeadLeft() {
     if (this.head_ == 0) {
-      this.tape_.addFirst(blankSymbol_);
+      this.tape_.add(0, blankSymbol_);
     } else {
       this.head_--;
     }
@@ -35,6 +35,11 @@ public class Tape {
   }
   public Symbol read() {
     return this.tape_.get(this.head_);
+  }
+  public void reinitialize() {
+    this.tape_.clear();
+    this.tape_.add(blankSymbol_);
+    this.head_ = 0;
   }
   public String toString() {
     StringBuilder result = new StringBuilder();

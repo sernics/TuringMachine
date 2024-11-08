@@ -23,12 +23,14 @@ public class TuringMachine {
     for (Transition transition : transitions) {
       if (transition.readSymbol().equals(actualSymbol)) {
         this.tape_.write(transition.writeSymbol());
-        System.out.println(transition.nextState());
         transition.direction().operate(tape_);
         return transition.nextState();
       }
     }
     return null;
+  }
+  private void reinitialize() {
+    this.tape_.reinitialize();
   }
 
   public TuringMachine(Vector<State> states, Alphabet alphabet, Alphabet tapeAlphabet, State initialState, Symbol blankSymbol) {
@@ -44,14 +46,18 @@ public class TuringMachine {
       System.err.println("The chain contains symbols not in the alphabet");
       return false;
     }
+    tape_.reinitialize();
     tape_.setChain(chain);
     State currentState = this.initialState_;
     while (true) {
       currentState = transitionFunction(currentState);
       if (currentState == null) {
+        System.out.println("The chain is rejected");
+        System.out.println("The result is: " + tape_);
         break;
       }
       if (currentState.isFinal()) {
+        System.out.println("The chain is accepted");
         System.out.println("The result is: " + tape_);
         return true;
       }
