@@ -12,10 +12,11 @@ public class Main {
     TuringMachine tm = parser.parse();
     String chain = "";
     while (true) {
-      System.out.print("Enter a chain to test the Turing Machine: ");
+      System.out.print("Enter a chain to test the Turing Machine (exit to close): ");
       chain = scanner.nextLine();
       if (!chain.equals("exit")) {
         tm.run(chain);
+        System.out.println("===========================================================================");
       } else {
         System.out.println("Exiting...");
         break;
